@@ -1,0 +1,43 @@
+<h1><%= @user.username %></h1>
+<h5><%= @user.email %></h5>
+
+<h4>Posts</h4>
+
+<h5>New Post</h5>
+<%= form_for User.new do |f| %>
+	<%=f.label :posts %>
+	<%=f.text_field :username %>
+	<%=f.submit %>
+<% end %>
+
+<h5>Post 1</h5>
+<% @user.posts.each do |x| %>
+
+	<%= x.title%>
+	<%= x.body%>
+
+<% end %>
+
+<h5>Post 2</h5>
+<% @user.posts.each do |x| %>
+
+	<%= x.title%>
+	<%= x.body%>
+
+<% end %>
+
+<h5>Post 3</h5>
+<% @user.posts.each do |x| %>
+
+	<%= x.title%>
+	<%= x.body%>
+
+<% end %>
+
+<h4>Comments</h4>
+<% @user.posts.each do |x| %>
+
+	<%= x.title%>
+	<%= x.body%>
+
+<% end %>

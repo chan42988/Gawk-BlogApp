@@ -1,0 +1,13 @@
+<%= form_for User.new do |f| %>
+	<%=f.label :username %>
+	<%=f.text_field :username %><br><br>
+	<%=f.label :password %>
+	<%=f.text_field :password %><br><br>
+	<%=f.label :email %>
+	<%=f.text_field :email %><br><br>
+	<%=f.submit %><br><br>
+<% end %>
+
+<% @users.each do |user| %>
+	<%= link_to user.username, user_path(user) %><br>
+<% end %>
