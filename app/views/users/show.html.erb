@@ -1,23 +1,11 @@
 <h1><%= @user.username %></h1>
 <h5><%= @user.email %></h5>
 
-<h4>Posts</h4>
+<%= link_to "Blog", new_post_path %>
 
-<h5>New Post</h5>
-<%= form_for Post.new do |f| %>
-	<%=f.hidden_field :user_id, :value => current_user.id %>
-	<%=f.label :title %>
-	<%=f.text_field :title %>
-	<%=f.label :body %>
-	<%=f.text_field :body %>
-	<%=f.submit %>
+<% @posts.each do |post| %>
+<%= link_to new_post_path(post) %>
 <% end %>
-
-<% @posts.each do |x| %>
-	<%= link_to x.title, x %>
-	<%= x.body %>
-<% end %>
-
 
 <h3>Log Out</h3>
 

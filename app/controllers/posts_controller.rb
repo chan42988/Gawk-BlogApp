@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
     # @post.comments_on = true
     @post.save
-    redirect_to post_path(@post)
+    redirect_to posts_path(@post)
   end
 
   def new
