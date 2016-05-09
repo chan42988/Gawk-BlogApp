@@ -1,29 +1,32 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.reverse
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id).reverse
   end
 
   def new
+    @user = User.new
   end
 
   def create
-    @user = User.new(username: params[:user][:username], password: params[:user][:password], email: params[:user][:email])
-
+    @user = User.create(user_params)
 
       if @user.save
         flash[:notice] = "Your account was created successfully."
-        redirect_to user_path @user
+        redirect_to new_user_path
       else
         flash[:alert] = "There was a problem saving your account."
         redirect_to new_user_path
       end
+
   end
 
   def update
+
   end
 
   def destroy
@@ -31,4 +34,15 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
+  end
+
+
 end
+
+
+
