@@ -1,2 +1,25 @@
 <br><br><%= @post.title %><br><br>
 <%= @post.body %>
+
+<h2>Comments</h2>
+
+<% @comments.each do |comment| %>
+
+	<%= comment.body %><br>
+	By  
+		<% if comment.user %>
+			<%= link_to comment.user.username, user_path(comment.user) %>
+			<br>
+		<% end %> 
+		Posted: <%= comment.created_at %><br><br>
+
+<% end %>
+
+<%= form_for @comment do |f| %>
+<%=f.label "Comment:" %>
+<%=f.text_field :body %><br><br>
+<%=f.hidden_field :user_id, :value => @current_user.id %>
+<%=f.hidden_field :post_id, :value => @post.id %>
+<%=f.submit %>
+<% end %>
+
