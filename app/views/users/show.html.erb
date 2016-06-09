@@ -1,11 +1,9 @@
 <h1><%= @user.username %></h1>
 <h5><%= @user.email %></h5>
 
-<%= link_to "Blog", new_post_path %>
+<%= link_to "Blog", new_post_path %><br><br>
 
-<% @posts.each do |post| %>
-<%= link_to new_post_path(post) %>
-<% end %>
+<%= link_to "Posts", posts_path %>
 
 <h3>Log Out</h3>
 

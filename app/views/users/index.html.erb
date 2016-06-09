@@ -1,28 +1,14 @@
+<div id='ucontainer'>
+<br>
+<h1>Sign up</h1>
+
 <%= form_for User.new do |f| %>
-	<%=f.label :username %>
-	<%=f.text_field :username %><br><br>
-	<%=f.label :password %>
-	<%=f.password_field :password %><br><br>
-	<%=f.label :email %>
-	<%=f.text_field :email %><br><br>
-	<%=f.submit %><br><br>
-<% end %>
+  <%=f.label :username %>
+  <%=f.text_field :username %><br><br>
+  <%=f.label :password %>
+  <%=f.password_field :password %><br><br>
+  <%=f.label :email %>
+  <%=f.text_field :email %><br><br>
+  <%=f.submit %><br><br>
 
-<h1>Log in</h1>
-
-    <%= form_for(:sessions, url: login_path) do |f| %>
-
-      <%= f.label "email" %>
-      <%= f.text_field :email %>
-
-      <%= f.label "password" %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Log in" %>
-    <% end %>
-
-    <p>New user?</p>
-
-    <% @users.each do |user| %>
-	<%= link_to user.username, user_path(user) %><br>
-<% end %>
+<% end %><hr>

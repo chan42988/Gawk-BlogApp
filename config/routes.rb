@@ -1,36 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'homes/index'
-
-  get 'homes/show'
-
-  get 'homes/new'
-
-  get 'homes/create'
-
-  get 'homes/update'
-
-  get 'homes/destroy'
-
-  get 'homes/edit'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'sessions/new'
-
-  root "users#index"
+  root "home#index"
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-
   resources :posts
-
   resources :comments
+  resources :home
+  resources :sessions
 
 
   # The priority is based upon order of creation: first created -> highest priority.

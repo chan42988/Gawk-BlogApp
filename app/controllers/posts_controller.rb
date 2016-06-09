@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   def create
     current_user
   	@post = Post.new(post_params)
-    # @post.comments_on = true
     @post.save
     redirect_to posts_path(@post)
   end

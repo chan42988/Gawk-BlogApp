@@ -1,0 +1,13 @@
+<div id='scontainer'>
+<br><h1>Log in</h1>
+
+<%= form_for(:sessions, url: login_path) do |f| %>
+  <%= f.label "email" %>
+  <%= f.text_field :email %><br><br>
+  <%= f.label "password" %>
+  <%= f.password_field :password %><br><br>
+  <%= f.submit "Log in" %><br><br><br>
+
+<% end %>
+
+</div>
