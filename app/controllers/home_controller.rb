@@ -27,10 +27,13 @@ class HomeController < ApplicationController
   def update
   end
 
-  def destroy
+  def edit
   end
 
-  def edit
+  def destroy
+    session.clear
+    redirect_to home_index_path
+    flash[:alert] = "Bye Bye"
   end
 
   private

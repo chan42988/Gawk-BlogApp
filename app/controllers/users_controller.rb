@@ -17,32 +17,37 @@ class UsersController < ApplicationController
 
       if @user.save
         flash[:notice] = "Your account was created successfully."
-        redirect_to new_user_path
+        redirect_to user_path(@user)
       else
         flash[:alert] = "There was a problem saving your account."
-        redirect_to new_user_path
+        redirect_to home_index_path
       end
-
-  end
-
-  def update
-
-  end
-
-  def destroy
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "Updated successfully"
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "Update failed"
+      render :edit
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).delete
+    redirect_to users_path
+    flash[:alert] = "Bye Bye"
   end
 
   private
-
   def user_params
     params.require(:user).permit(:username, :password, :email)
   end
 
-
 end
-
-
-

@@ -14,11 +14,13 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to users_path
+    redirect_to home_index_path
     flash[:alert] = "you are signed out"
   end
 
-  def new
+  private
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
   end
-  
+
 end

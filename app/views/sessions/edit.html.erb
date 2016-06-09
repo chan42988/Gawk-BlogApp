@@ -1,6 +1,6 @@
 <div id='econtainer'>
 <br>
-<%= form_for(@user) do |f| %>
+<%= form_for User.new do |f| %>
 	<%=f.label :username %>
 	<%=f.text_field :username %><br><br>
 	<%=f.label :password %>
@@ -10,6 +10,5 @@
 	<%=f.submit "Update" %>
 <% end %>
 <p>or</p>
-
-<%= link_to "Delete Account", user_path(@user), method: :delete%>
+<%= link_to "Delete Account", home_index_path, method: :delete %>
 </div>

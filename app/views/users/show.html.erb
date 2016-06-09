@@ -1,15 +1,16 @@
-<h1><%= @user.username %></h1>
-<h5><%= @user.email %></h5>
-
-<%= link_to "Blog", new_post_path %><br><br>
-
+<div id= 'mcontainer'>
+<br>
+<h1>Welcome <%= @user.username %>!</h1>
+<%= link_to "Edit", edit_user_path %> your profile page!
+<p>or check out the</p>
+<%= link_to "Blog", new_post_path %>,
 <%= link_to "Posts", posts_path %>
 
-<h3>Log Out</h3>
+<%= form_tag("/logout",method: "delete")do %><br>
+<%= submit_tag("Log Out") %>
+<% end %><br><br>
 
-  <%= form_tag("/logout",method: "delete")do %>
-  <%= submit_tag("Log Out") %>
-  <% end %>
+</div>
 
 
 
