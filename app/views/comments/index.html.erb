@@ -1,0 +1,12 @@
+<div id="anotherc">
+<br>
+	<h1>Comment!</h1>
+	<% if logged_in? %>
+		<%= form_for Comment.new do |f| %>
+			<%=f.text_field :body %><br><br>
+			<%=f.hidden_field :user_id, :value => @current_user.id %>
+			<%=f.submit %>
+		<% end %>
+	<% end %>
+	<br><br>
+</div>

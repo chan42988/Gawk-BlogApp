@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
     redirect_to home_index_path
     flash[:alert] = "you are signed out"
   end

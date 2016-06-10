@@ -1,0 +1,18 @@
+<div id="zcontainer">
+
+<%= form_for(@post) do |f| %>
+	<%=f.label :title %>
+	<%=f.text_field :title %><br><br>
+	<%=f.label :body %>
+	<%=f.text_field :body %><br><br>
+	<%=f.submit "Update" %>
+<% end %>
+<p>or</p>
+
+<%= link_to "Delete", post_path(@post), method: :delete%> post
+
+<p>or just</p>
+
+Go <%= link_to "Back ", :back %>
+
+</div>

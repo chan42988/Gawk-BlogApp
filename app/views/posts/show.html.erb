@@ -1,18 +1,16 @@
 <div id='ccontainer'>
-<br><br>
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p><hr>
+	<br><br>
+	<h1><%= @post.title %></h1>
+	<p><%= @post.body %></p><br><br>
+	<%= link_to "Edit Post", edit_post_path %><br><br><hr>
 
-<h3>Comment on Post</h3>
-<% if logged_in? %>
-	<%= form_for Comment.new do |f| %>
-		<%=f.text_field :body %><br><br>
-		<%=f.hidden_field :user_id, :value => @current_user.id %>
-		<%=f.hidden_field :post_id, :value => @post.id %>
-		<%=f.submit %>
+	<h2>Comments on this Post</h2>
+	<% @comments.each do |comment| %>
+		<%= comment.body %><br><br>
 	<% end %>
-<% end %>
+
+	<%= link_to "Comment on Post", comments_path %><br>
 	<br><hr><br>
-		<%= link_to "Back to Account", @user_path %>
+	<%= link_to "Back to all Posts", :back %>
 	<br><br><br>
 </div>

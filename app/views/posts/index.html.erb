@@ -1,11 +1,21 @@
 <div id="pcontainer">
-	<br><br>
+	<br>
+	<h1>Image of the Day!</h1><br>
 
 	<div id="image1">
 		<img src="/assets/turtle.jpg">
-	</div>
+	</div><br><hr><br>
+
+<h2>Errbody's Posts</h2><br>
+		<% @posts.each do |post| %>
+			<%= link_to post.title, post_path(post) %><br>
+			<%= post.body %><br><br>
+		<% end %><br>
 
 	<hr><br>
+
+	<h2>Post Something</h2>
+
 	<% if logged_in? %>
 
 		<%= form_for Post.new do |f| %>
@@ -17,17 +27,14 @@
 			<%= f.label :body %>
 			<br>
 			<%= f.text_area :body %>
-			<br>
+			<br><br>
 			<%=f.hidden_field :user_id, :value => @current_user.id %>
 			<%= f.submit %>
 
-		<% end %><br><br>
+		<% end %><br><br><hr><br>
 
-		<% @posts.each do |post| %>
-			<%= link_to post.title, post_path(post) %>
-			<%= post.body %><br>
-		<% end %>
+		<%= link_to "Go Back to Main Account", @current_user %>
 
 	<% end %>
-
+<br><br><br><br>
 </div>

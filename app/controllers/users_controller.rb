@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
       if @user.save
+        log_in @user
         flash[:notice] = "Your account was created successfully."
         redirect_to user_path(@user)
       else

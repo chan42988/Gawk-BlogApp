@@ -22,11 +22,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    current_user
     @post = Post.find(params[:id])
     @user = @post.user
-    @comments = Comment.where(post_id: params[:id])
-    @comment = Comment.new
+    @comments = Comment.all.reverse
   end
 
   def update
@@ -37,7 +35,6 @@ class PostsController < ApplicationController
 
   def destroy
   	@user = Post.destroy(params[:id])
-    post.destroy
     redirect_to posts_path
   end
 
