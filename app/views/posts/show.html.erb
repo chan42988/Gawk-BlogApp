@@ -1,25 +1,18 @@
-<br><br><%= @post.title %><br><br>
-<%= @post.body %>
+<div id='ccontainer'>
+<br><br>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p><hr>
 
-<h2>Comments</h2>
-
-<% @comments.each do |comment| %>
-
-	<%= comment.body %><br>
-	By  
-		<% if comment.user %>
-			<%= link_to comment.user.username, user_path(comment.user) %>
-			<br>
-		<% end %> 
-		Posted: <%= comment.created_at %><br><br>
-
+<h3>Comment on Post</h3>
+<% if logged_in? %>
+	<%= form_for Comment.new do |f| %>
+		<%=f.text_field :body %><br><br>
+		<%=f.hidden_field :user_id, :value => @current_user.id %>
+		<%=f.hidden_field :post_id, :value => @post.id %>
+		<%=f.submit %>
+	<% end %>
 <% end %>
-
-<%= form_for @comment do |f| %>
-<%=f.label "Comment:" %>
-<%=f.text_field :body %><br><br>
-<%=f.hidden_field :user_id, :value => @current_user.id %>
-<%=f.hidden_field :post_id, :value => @post.id %>
-<%=f.submit %>
-<% end %>
-
+	<br><hr><br>
+		<%= link_to "Back to Account", @user_path %>
+	<br><br><br>
+</div>

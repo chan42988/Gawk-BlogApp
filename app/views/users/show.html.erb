@@ -2,20 +2,13 @@
 <br>
 <h1>Welcome <%= @user.username %>!</h1>
 <%= link_to "Edit", edit_user_path %> your profile page!
-<p>or check out the</p>
-<%= link_to "Blog", new_post_path %>,
-<%= link_to "Posts", posts_path %>
+<p>or</p>
+<%= link_to "Gawk", posts_path %> at today's image,
+<p>or</p>
+Check out other peeps <%= link_to "Posts", posts_path %>
 
 <%= form_tag("/logout",method: "delete")do %><br>
 <%= submit_tag("Log Out") %>
 <% end %><br><br>
 
 </div>
-
-
-
-
-
-
-
-

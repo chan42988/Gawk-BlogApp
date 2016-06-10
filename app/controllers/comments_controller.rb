@@ -6,12 +6,6 @@ class CommentsController < ApplicationController
     redirect_to post_path(@comment.post_id)
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
   def comment_params

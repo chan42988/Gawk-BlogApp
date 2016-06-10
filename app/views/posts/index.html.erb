@@ -1,8 +1,33 @@
-<%= link_to "Link to create new post", new_post_path %>
+<div id="pcontainer">
+	<br><br>
 
-<br><br>
+	<div id="image1">
+		<img src="/assets/turtle.jpg">
+	</div>
 
-<% @posts.each do |post| %>
-	<%= link_to post.title, post_path(post) %>
-	<%= post.body %><br>
-<% end %>
+	<hr><br>
+	<% if logged_in? %>
+
+		<%= form_for Post.new do |f| %>
+
+			<%= f.label :title %>
+			<br>
+			<%= f.text_field :title %>
+			<br>
+			<%= f.label :body %>
+			<br>
+			<%= f.text_area :body %>
+			<br>
+			<%=f.hidden_field :user_id, :value => @current_user.id %>
+			<%= f.submit %>
+
+		<% end %><br><br>
+
+		<% @posts.each do |post| %>
+			<%= link_to post.title, post_path(post) %>
+			<%= post.body %><br>
+		<% end %>
+
+	<% end %>
+
+</div>
