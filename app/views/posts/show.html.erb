@@ -5,12 +5,13 @@
 	<%= link_to "Edit Post", edit_post_path %><br><br><hr>
 
 	<h2>Comments on this Post</h2>
-	<% @comments.each do |comment| %>
-		<%= comment.body %><br><br>
-	<% end %>
+		<% @comments.each do |comment| %>
+			<%= link_to comment.body, comment_path(comment) %><br><br>
+			<%= comment.body %> <br><br>
+		<% end %><br><br>
 
-	<%= link_to "Comment on Post", comments_path %><br>
+	<%= link_to "Comment on Post", comments_path(:post_id => @post.id) %><br>
 	<br><hr><br>
-	<%= link_to "Back to all Posts", :back %>
+	<%= link_to "Back to all Posts", posts_path %>
 	<br><br><br>
 </div>

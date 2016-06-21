@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @comments = Comment.all.reverse
+    @comments = @post.comments.reverse
   end
 
   def update

@@ -8,7 +8,7 @@
 
 <h2>Errbody's Posts</h2><br>
 		<% @posts.each do |post| %>
-			<%= link_to post.title, post_path(post) %><br>
+			<%= link_to post.title, post_path(post) %><br><br>
 			<%= post.body %><br><br>
 		<% end %><br>
 
